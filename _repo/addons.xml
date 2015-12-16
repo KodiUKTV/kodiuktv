@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addons>
+<addon id="plugin.program.kodiuktv" name="KodiUK TV Wizard" version="1.2" provider-name="KodiUK.TV">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>executable</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">KodiUK TV Wizard</summary>
+    <description lang="en">The hub of KodiUK.TV and the home of all official, and Community builds.  Find us online at www.kodiuk.tv and also on Facebook</description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
+<addon id="plugin.video.stealthstreams"
+       name="Stealth Streams"
+       version="1.0"
+       provider-name="GoDev">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource"
+            library="default.py">
+        <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Stealth Streams</summary>
+    <language>en</language>
+    <description lang="en">tealthStreams official addon - Supplying only the best quality of streams for Live TV / PPV / Sports / Kids / Movies / Entertainment. More info at kodiuk.tv - Provided by Playnice</description>
+     <platform>all</platform>
+  </extension>
+</addon>
+
+    <addon id="repository.kodiuktv" name="KODIUKTV Repo" version="1.0.1" provider-name="KODIUKTV">
+        <requires>
+            <import addon="xbmc.addon" version="12.0.0"/>
+        </requires>
+        <extension point="xbmc.addon.repository" name="KODIUKTV Repo">
+            <info compressed="false">https://raw.githubusercontent.com/kodiuktv/kodiuktv/_repo/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/kodiuktv/kodiuktv/_repo/addons.xml.md5</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/kodiuktv/kodiuktv/_repo/</datadir>
+            <hashes>false</hashes>
+        </extension>
+        <extension point="xbmc.addon.metadata">
+            <summary>The official KODIUKTV Repo</summary>
+            <description>The home of all KODIUKTV Addons & Community Addons. Find us online at kodiuk.tv</description>
+            <platform>all</platform>
+    </extension>
+</addon>
+</addons>
