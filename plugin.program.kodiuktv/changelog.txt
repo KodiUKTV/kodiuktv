@@ -1,0 +1,9 @@
+v1.2
+Text Changes, Beta Release
+
+v1.1
+Build List loading incorrectly fixed.
+Clear Cache seperated into option.
+
+v1.0
+Initial Release

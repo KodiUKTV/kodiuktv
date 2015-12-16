@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+    <category label="Backup Storage">
+        <setting id="zip" type="folder"    label="Choose Backup Storage Location"      default=""/>
+		<setting id="mastercopy" type="bool" label="Full Backup & Uni Copy?" default="false"/>
+        <setting type="lsep" label="[CR][CR]"/>
+		<setting type="lsep" label="Tick Box if you plan to distribute"/>
+		<setting type="lsep" label="Otherwise its your device only"/>
+		<setting type="lsep" label="[CR][CR]"/>
+	</category>
+    
+	<category label="Show/Hide Content">	
+	    <setting id="KodiUKBuildMenu" type="bool" label="KodiUK TV Builds" default="true"/>	
+		<setting id="CommunityBuildMenu" type="bool" label="Community Builds" default="true"/>		
+		<setting id="Extras" type="bool" label="Extra" default="false"/>	
+		<setting id="Maintenance" type="bool" label="Maintenance" default="true"/>
+	</category>
+</settings>

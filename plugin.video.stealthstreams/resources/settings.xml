@@ -1,0 +1,7 @@
+<settings>
+<category label="Settings">
+     <setting id="Username" type="text" label="Username" default=""/>
+     <setting id="Password" type="text" label="Password" default=""/>
+     <setting id="CFU" type="bool" label="Check For Updates" default="True"/>
+</category>
+</settings>
