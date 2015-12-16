@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+		<setting id="Username" type="text" label="Username" default=""/>
+        <setting id="Password" type="text" label="Password" default=""/>
+</settings>

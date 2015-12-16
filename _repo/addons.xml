@@ -28,7 +28,7 @@
   <extension point="xbmc.addon.metadata">
     <summary lang="en">Stealth Streams</summary>
     <language>en</language>
-    <description lang="en">tealthStreams official addon - Supplying only the best quality of streams for Live TV / PPV / Sports / Kids / Movies / Entertainment. More info at kodiuk.tv - Provided by Playnice</description>
+    <description lang="en">StealthStreams official addon - Supplying only the best quality of streams for Live TV / PPV / Sports / Kids / Movies / Entertainment. More info at kodiuk.tv - Provided by Playnice</description>
      <platform>all</platform>
   </extension>
 </addon>
