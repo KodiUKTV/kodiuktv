@@ -27,7 +27,7 @@ THUMBNAILS =  xbmc.translatePath(os.path.join(USERDATA,'Thumbnails'))
 zip =  ADDON.getSetting('zip')
 USB =  xbmc.translatePath(os.path.join(zip))
 skin =  xbmc.getSkinDir()
-VERSION = "1.2"
+VERSION = "1.3"
 PATH = "kodiuktv"
 
 def MainMenu():
@@ -45,13 +45,13 @@ def MainMenu():
 		addFolder('folder','Maintenance and Tweaks','FanArt', 'Tools', 'maintenance.png','','','')	
 	setView('movies', 'MAIN')
 def KodiUKBuildMenu():
-    link = OPEN_URL('https://archive.org/download/wizard_201510/toolbox.xml').replace('\n','').replace('\r','')  #HERE YOU NEED TO ADDRESS FOR THE XML FILE ON YOU WEBSPACE THIS WILL BE WHERE YOU HAVE THE PATH TO YOUR ZIP FILES
+    link = OPEN_URL('https://archive.org/download/wizard_201510/toolbox.xml').replace('\n','').replace('\r','')  #Spaf
     match = re.compile('name="(.+?)".+?rl="(.+?)".+?mg="(.+?)".+?anart="(.+?)".+?escription="(.+?)"').findall(link)
     for name,url,iconimage,FanArt,description in match:
         addXMLMenu(name,url,1,iconimage,FanArt,description)
     setView('movies', 'MAIN')
 def CommBuildMenu():
-    link = OPEN_URL('https://ia801503.us.archive.org/29/items/wizard_201510/toolboxcommunity.xml').replace('\n','').replace('\r','')  #HERE YOU NEED TO ADDRESS FOR THE XML FILE ON YOU WEBSPACE THIS WILL BE WHERE YOU HAVE THE PATH TO YOUR ZIP FILES
+    link = OPEN_URL('https://ia801503.us.archive.org/29/items/wizard_201510/toolboxcommunity.xml').replace('\n','').replace('\r','')  #Spaf
     match = re.compile('name="(.+?)".+?rl="(.+?)".+?mg="(.+?)".+?anart="(.+?)".+?escription="(.+?)"').findall(link)
     for name,url,iconimage,FanArt,description in match:
         addXMLMenu(name,url,1,iconimage,FanArt,description)
@@ -163,9 +163,11 @@ def Restore_Option():
 def ComingSoon():
     Dialog.ok('Kodi UK Wizard','Coming Soon!')			
 def ExtraMenu():
-    addFolder('folder','KodiUK Recommended Addons', 'none', 'ComingSoon', 'kodiukbuilds.png','','','')
-    addFolder('folder','MJD Recommended Addons', 'none', 'ComingSoon', 'seo.png','','','')
-    setView('movies', 'MAIN')
+    link = OPEN_URL('https://ia801503.us.archive.org/29/items/wizard_201510/toolboxextras.xml').replace('\n','').replace('\r','')  #Spaf
+    match = re.compile('name="(.+?)".+?rl="(.+?)".+?mg="(.+?)".+?anart="(.+?)".+?escription="(.+?)"').findall(link)
+    for name,url,iconimage,FanArt,description in match:
+        addXMLMenu(name,url,2,iconimage,FanArt,description)
+    setView('movies', 'MAIN')	
 def OPEN_URL(url):
     req = urllib2.Request(url)
     req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
@@ -192,12 +194,31 @@ def wizard(name,url,description):
     extract.all(lib,addonfolder,dp)
     Dialog = xbmcgui.Dialog()
     Dialog.ok("DOWNLOAD COMPLETE", 'Unfortunately the only way to get the new changes to stick is', 'to force close kodi. Click ok to force Kodi to close,', 'DO NOT use the quit/exit options in Kodi.')
-def addXMLMenu(name,url,mode,iconimage,FanArt,description):
-        u=sys.argv[0]+"?url="+urllib.quote_plus(url)+"&mode="+str(mode)+"&name="+urllib.quote_plus(name)+"&iconimage="+urllib.quote_plus(iconimage)+"&FanArt="+urllib.quote_plus(FanArt)+"&description="+urllib.quote_plus(description)
+def wizard2(name,url,description):
+    path = xbmc.translatePath(os.path.join('special://home/addons','packages'))
+    dp = xbmcgui.DialogProgress()
+    dp.create("[COLOR dodgerblue]Community[/COLOR] [COLOR lime]Toolbox[/COLOR]","Downloading ",'', 'Please Wait')
+    lib=os.path.join(path, name+'.zip')
+    try:
+       os.remove(lib)
+    except:
+       pass
+    downloader.download(url, lib, dp)
+    addonfolder = xbmc.translatePath(os.path.join('special://','home'))
+    time.sleep(2)
+    dp.update(0,"", "Extracting Zip Please Wait")
+    print '======================================='
+    print addonfolder
+    print '======================================='
+    extract.all(lib,addonfolder,dp)
+    Dialog = xbmcgui.Dialog()
+    Dialog.ok("Stealth Streams", 'Installed iVue Link', '', '')
+def addXMLMenu(name,url,mode,iconimage,fanart,description):
+        u=sys.argv[0]+"?url="+urllib.quote_plus(url)+"&mode="+str(mode)+"&name="+urllib.quote_plus(name)+"&iconimage="+urllib.quote_plus(iconimage)+"&fanart="+urllib.quote_plus(fanart)+"&description="+urllib.quote_plus(description)
         ok=True
         liz=xbmcgui.ListItem(name, iconImage="DefaultFolder.png", thumbnailImage=iconimage)
         liz.setInfo( type="Video", infoLabels={ "Title": name, "Plot": description } )
-        liz.setProperty( "FanArt_Image", FanArt )
+        liz.setProperty( "Fanart_Image", fanart )
         ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=u,listitem=liz,isFolder=False)
         return ok
 def addFolder(type,name,url,mode,iconimage = '',FanArt = '',video = '',description = ''):
@@ -398,4 +419,5 @@ elif mode == 'backupzip': GoDev.Backupzip() #Backitup
 elif mode == 'RestoreIt': GoDev.RestoreIt() #RestoreBuild
 elif mode == 'ComingSoon': ComingSoon() #ComingSoon
 elif mode==1: wizard(name,url,description) #OpenWizard
+elif mode==2: wizard2(name,url,description) #OpenWizard
 xbmcplugin.endOfDirectory(int(sys.argv[1]))
