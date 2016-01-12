@@ -1,7 +1,7 @@
 import urllib,urllib2, sys, xbmcplugin ,xbmcgui, xbmcaddon, xbmc, os, json, re
-import common,xbmcvfs	
+import common,xbmcvfs,zipfile,downloader,extract
 from datetime import datetime, timedelta
-import base64
+import base64, time
 
 AddonID = 'plugin.video.stealthstreams'
 Addon = xbmcaddon.Addon(AddonID)
@@ -16,6 +16,13 @@ Images=xbmc.translatePath(os.path.join('special://home','addons',AddonID,'resour
 addon_data_dir = os.path.join(xbmc.translatePath("special://userdata/addon_data" ).decode("utf-8"), AddonID)
 if not os.path.exists(addon_data_dir):
     os.makedirs(addon_data_dir)
+def OPEN_URL(url):
+    req = urllib2.Request(url)
+    req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
+    response = urllib2.urlopen(req)
+    link=response.read()
+    response.close()
+    return link
 def Open_URL(AccLink):
         req = urllib2.Request(url)
         #req.add_header('User-Agent' , "Magic Browser")
@@ -27,6 +34,7 @@ def Open_URL(AccLink):
 def MainMenu():
         AddDir('My Account',AccLink,1,Images + 'MyAcc.png')
         AddDir('Live TV','url',2,Images + 'Live TV.png')
+        AddDir('Extras','Extras',5,'')
         AddDir('Settings','settings',4,'')
 def LiveTv(url):
     list = common.m3u2list(ServerURL)
@@ -105,6 +113,40 @@ def Get_Params():
 def OpenSettings():
     ADDON.openSettings()
     MainMenu()	
+def wizard2(name,url,description):
+    path = xbmc.translatePath(os.path.join('special://home/addons','packages'))
+    dp = xbmcgui.DialogProgress()
+    dp.create("[COLOR dodgerblue]Community[/COLOR] [COLOR lime]Toolbox[/COLOR]","Downloading ",'', 'Please Wait')
+    lib=os.path.join(path, name+'.zip')
+    try:
+       os.remove(lib)
+    except:
+       pass
+    downloader.download(url, lib, dp)
+    addonfolder = xbmc.translatePath(os.path.join('special://','home'))
+    time.sleep(2)
+    dp.update(0,"", "Extracting Zip Please Wait")
+    print '======================================='
+    print addonfolder
+    print '======================================='
+    extract.all(lib,addonfolder,dp)
+    dp = xbmcgui.Dialog()
+    dp.ok("Stealth Streams", 'Installed iVue Link', '', '')
+def addXMLMenu(name,url,mode,iconimage,fanart,description):
+        u=sys.argv[0]+"?url="+urllib.quote_plus(url)+"&mode="+str(mode)+"&name="+urllib.quote_plus(name)+"&iconimage="+urllib.quote_plus(iconimage)+"&fanart="+urllib.quote_plus(fanart)+"&description="+urllib.quote_plus(description)
+        ok=True
+        liz=xbmcgui.ListItem(name, iconImage="DefaultFolder.png", thumbnailImage=iconimage)
+        liz.setInfo( type="Video", infoLabels={ "Title": name, "Plot": description } )
+        liz.setProperty( "Fanart_Image", fanart )
+        ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=u,listitem=liz,isFolder=False)
+        return ok
+def ExtraMenu():
+    link = OPEN_URL('https://ia801503.us.archive.org/29/items/wizard_201510/toolboxextras.xml').replace('\n','').replace('\r','')  #Spaf
+    match = re.compile('name="(.+?)".+?rl="(.+?)".+?mg="(.+?)".+?anart="(.+?)".+?escription="(.+?)"').findall(link)
+    for name,url,iconimage,FanArt,description in match:
+        addXMLMenu(name,url,6,iconimage,FanArt,description)
+
+
 params=Get_Params()
 url=None
 name=None
@@ -134,5 +176,9 @@ elif mode == 3:
     PlayUrl(name, url, iconimage)
 elif mode == 4:
 	OpenSettings()
+elif mode == 5:
+	ExtraMenu()
+elif mode == 6:
+	wizard2(name,url,description)	
 
 xbmcplugin.endOfDirectory(int(sys.argv[1]))

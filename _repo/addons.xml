@@ -53,8 +53,8 @@
 
 <addon id="plugin.video.stealthstreams"
        name="Stealth Streams"
-       version="1.1"
-       provider-name="GoDev">
+       version="1.2"
+       provider-name="StealthStreams">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
@@ -65,7 +65,7 @@
   <extension point="xbmc.addon.metadata">
     <summary lang="en">Stealth Streams</summary>
     <language>en</language>
-    <description lang="en">StealthStreams official addon - Supplying only the best quality of streams for Live TV / PPV / Sports / Kids / Movies / Entertainment. More info at kodiuk.tv - Provided by Playnice</description>
+    <description lang="en">StealthStreams official addon - Supplying only the best quality of streams for Live TV / PPV / Sports / Kids / Movies / Entertainment. You know where to find us!</description>
      <platform>all</platform>
   </extension>
 </addon>
