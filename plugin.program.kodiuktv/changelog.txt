@@ -1,11 +1,7 @@
 v1.4
+
 Build XML Moves as we move away from archive. Builds now download from our private VPS. 
 
-v1.3
-Extras menu, Incorporates StealthStreams IVUE/Renegades Integration
-
-v1.2
-Text Changes, Beta Release
 
 v1.1
 Build List loading incorrectly fixed.
