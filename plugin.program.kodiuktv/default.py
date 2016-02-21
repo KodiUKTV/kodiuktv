@@ -45,13 +45,13 @@ def MainMenu():
 		addFolder('folder','Maintenance and Tweaks','FanArt', 'Tools', 'maintenance.png','','','')	
 	setView('movies', 'MAIN')
 def KodiUKBuildMenu():
-    link = OPEN_URL('http://185.101.107.102/development/xml/toolbox.xml').replace('\n','').replace('\r','')  #Spaf
+    link = OPEN_URL('http://builds.kodiuk.tv/development/xml/toolbox.xml').replace('\n','').replace('\r','')  #Spaf
     match = re.compile('name="(.+?)".+?rl="(.+?)".+?mg="(.+?)".+?anart="(.+?)".+?escription="(.+?)"').findall(link)
     for name,url,iconimage,FanArt,description in match:
         addXMLMenu(name,url,1,iconimage,FanArt,description)
     setView('movies', 'MAIN')
 def CommBuildMenu():
-    link = OPEN_URL('http://185.101.107.102/development/xml/toolboxcommunity.xml').replace('\n','').replace('\r','')  #Spaf
+    link = OPEN_URL('http://builds.kodiuk.tv/development/xml/toolboxcommunity.xml').replace('\n','').replace('\r','')  #Spaf
     match = re.compile('name="(.+?)".+?rl="(.+?)".+?mg="(.+?)".+?anart="(.+?)".+?escription="(.+?)"').findall(link)
     for name,url,iconimage,FanArt,description in match:
         addXMLMenu(name,url,1,iconimage,FanArt,description)
@@ -163,7 +163,7 @@ def Restore_Option():
 def ComingSoon():
     Dialog.ok('Kodi UK Wizard','Coming Soon!')			
 def ExtraMenu():
-    link = OPEN_URL('http://185.101.107.102/development/xml/toolboxextras.xml').replace('\n','').replace('\r','')  #Spaf
+    link = OPEN_URL('http://builds.kodiuk.tv/development/xml/toolboxextras.xml').replace('\n','').replace('\r','')  #Spaf
     match = re.compile('name="(.+?)".+?rl="(.+?)".+?mg="(.+?)".+?anart="(.+?)".+?escription="(.+?)"').findall(link)
     for name,url,iconimage,FanArt,description in match:
         addXMLMenu(name,url,2,iconimage,FanArt,description)

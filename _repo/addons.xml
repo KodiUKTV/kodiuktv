@@ -14,7 +14,7 @@
   </extension>
 </addon>
 
-<addon id="plugin.program.kodiuktv" name="KodiUK TV Wizard" version="1.5" provider-name="KodiUK.TV">
+<addon id="plugin.program.kodiuktv" name="KodiUK TV Wizard" version="1.6" provider-name="KodiUK.TV">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
@@ -30,7 +30,7 @@
 
 <addon id="plugin.video.stealthstreams"
        name="Stealth Streams"
-       version="1.4"
+       version="1.5"
        provider-name="StealthStreams">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
