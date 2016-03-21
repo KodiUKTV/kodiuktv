@@ -1,5 +1,6 @@
 import urllib,urllib2, sys, xbmcplugin ,xbmcgui, xbmcaddon, xbmc, os, json, re
 import common,xbmcvfs,zipfile,downloader,extract
+import GoDev
 from datetime import datetime, timedelta
 import base64, time
 
@@ -34,8 +35,11 @@ def Open_URL(AccLink):
 def MainMenu():
         AddDir('My Account',AccLink,1,Images + 'MyAcc.png')
         AddDir('Live TV','url',2,Images + 'Live TV.png')
-        AddDir('Extras','Extras',5,'')
-        AddDir('Settings','settings',4,'')
+        AddDir('Movies (Coming Soon)','Movies',8,Images + 'movies.jpg')
+        AddDir('TVShows (Coming Soon)','Movies',9,Images + 'tvshows.jpg')
+        AddDir('Extras','Extras',5,Images + 'extras.jpg')
+        AddDir('Clear Cache','Clear Cache',7,Images + 'cache.jpg')
+        AddDir('Settings','settings',4,Images + 'settings.jpg')
 def LiveTv(url):
     list = common.m3u2list(ServerURL)
     for channel in list:
@@ -113,6 +117,10 @@ def Get_Params():
 def OpenSettings():
     ADDON.openSettings()
     MainMenu()	
+def Clear_Cache():
+    choice = xbmcgui.Dialog().yesno('Clear your Cache?', 'This will Refresh your Live Events', 'It can help with Buffering issues also','If you have any issues, Make sure you are in our facebook group - Were here to help.', nolabel='Cancel',yeslabel='Delete')
+    if choice == 1:
+        GoDev.Wipe_Cache()
 def wizard2(name,url,description):
     path = xbmc.translatePath(os.path.join('special://home/addons','packages'))
     dp = xbmcgui.DialogProgress()
@@ -131,7 +139,7 @@ def wizard2(name,url,description):
     print '======================================='
     extract.all(lib,addonfolder,dp)
     dp = xbmcgui.Dialog()
-    dp.ok("Stealth Streams", 'Installed iVue Link', '', '')
+    dp.ok("Stealth Streams", 'TV Guide Integration Complete - Now open your TVGuide & Enjoy. If you have any trouble just get in touch in the StealthStreams Facebook group & Were happy to help.', '', '')
 def addXMLMenu(name,url,mode,iconimage,fanart,description):
         u=sys.argv[0]+"?url="+urllib.quote_plus(url)+"&mode="+str(mode)+"&name="+urllib.quote_plus(name)+"&iconimage="+urllib.quote_plus(iconimage)+"&fanart="+urllib.quote_plus(fanart)+"&description="+urllib.quote_plus(description)
         ok=True
@@ -145,6 +153,18 @@ def ExtraMenu():
     match = re.compile('name="(.+?)".+?rl="(.+?)".+?mg="(.+?)".+?anart="(.+?)".+?escription="(.+?)"').findall(link)
     for name,url,iconimage,FanArt,description in match:
         addXMLMenu(name,url,6,iconimage,FanArt,description)
+def Movies():
+    link = OPEN_URL('http://builds.kodiuk.tv/development/xml/moviesandtv.xml').replace('\n','').replace('\r','')  #Spaf
+    match = re.compile('name="(.+?)".+?rl="(.+?)".+?mg="(.+?)".+?anart="(.+?)".+?escription="(.+?)"').findall(link)
+    for name,url,iconimage,FanArt,description in match:
+        addXMLMenu(name,url,6,iconimage,FanArt,description)
+def TVShows():
+    link = OPEN_URL('http://builds.kodiuk.tv/development/xml/moviesandtv.xml').replace('\n','').replace('\r','')  #Spaf
+    match = re.compile('name="(.+?)".+?rl="(.+?)".+?mg="(.+?)".+?anart="(.+?)".+?escription="(.+?)"').findall(link)
+    for name,url,iconimage,FanArt,description in match:
+        addXMLMenu(name,url,6,iconimage,FanArt,description)
+
+		
 
 
 params=Get_Params()
@@ -168,6 +188,12 @@ except:pass
     
 if mode == None or url == None or len(url) < 1:
     MainMenu()
+elif mode == 7:
+	Clear_Cache()
+elif mode == 8:
+	Movies()
+elif mode == 9:
+	TVShows()
 elif mode == 1:
     MyAccDetails(url)
 elif mode == 2:
