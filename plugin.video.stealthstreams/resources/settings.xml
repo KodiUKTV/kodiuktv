@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <settings>
-		<setting id="Username" type="text" label="Username" default=""/>
-        <setting id="Password" type="text" label="Password" default=""/>
+<category label="General">
+     <setting id="Username" type="text" label="Username" default=""/>
+     <setting id="Password" type="text" option="writeable,hidden" label="Password" default=""/>
+	 <setting id="note" type="text" label="Note:" default="To Complete Log In Click Refresh Menu!"/>
+</category>
 </settings>

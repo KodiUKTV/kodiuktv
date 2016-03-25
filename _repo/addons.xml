@@ -30,7 +30,7 @@
 
 <addon id="plugin.video.stealthstreams"
        name="Stealth Streams"
-       version="1.6"
+       version="2.0"
        provider-name="StealthStreams">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
