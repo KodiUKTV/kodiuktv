@@ -66,7 +66,7 @@ def peamenyy(params):
     if uuendused == "true":
        kontrolli_uuendusi()
     channels = kontroll()
-    if channels == 1 and orig.mode == None:
+    if channels == 1 and orig.mode != 5:
        plugintools.log(pnimi+vod_channels("TG9naW4gU3VjY2Vzcw=="))
        plugintools.add_item( action=vod_channels("ZXhlY3V0ZV9haW5mbw=="),   title="My Account", thumbnail=os.path.join(LOAD_LIVE,vod_channels("bXlhY2MucG5n")) , fanart=os.path.join(LOAD_LIVE,vod_channels("YmFja2dyb3VuZC5wbmc=")) , folder=True )
        plugintools.add_item( action=vod_channels("c2VjdXJpdHlfY2hlY2s="),  title="Live TV" , thumbnail=os.path.join(LOAD_LIVE,vod_channels("bGl2ZXR2LnBuZw==")) , fanart=os.path.join(LOAD_LIVE,vod_channels("YmFja2dyb3VuZC5wbmc=")) , folder=True )
@@ -76,11 +76,10 @@ def peamenyy(params):
        orig.AddDir('Clear Cache','Clear Cache',7,orig.Images + 'cache.jpg')
        plugintools.add_item( action=vod_channels("bGljZW5zZV9jaGVjaw=="), title="Settings" , thumbnail=os.path.join(LOAD_LIVE,vod_channels("c2V0dGluZ3MuanBn")) , fanart=os.path.join(LOAD_LIVE,vod_channels("YmFja2dyb3VuZC5wbmc=") ), folder=False )
        plugintools.set_view( plugintools.LIST )
-    elif orig.mode == None:
+    elif orig.mode != 5:
        plugintools.add_item( action=vod_channels("bGljZW5zZV9jaGVjaw=="),  title="Please Log In #TEAMSTEALTH" , thumbnail=os.path.join(LOAD_LIVE,vod_channels("ZGVmYXVsdGxvZ28ucG5n")) , fanart=os.path.join(LOAD_LIVE,vod_channels("YmFja2dyb3VuZC5wbmc=")) , folder=False )
        plugintools.add_item( action=vod_channels("bGljZW5zZV9jaGVjaw=="), title="Settings" , thumbnail=os.path.join(LOAD_LIVE,vod_channels("c2V0dGluZ3MuanBn")) , fanart=os.path.join(LOAD_LIVE,vod_channels("YmFja2dyb3VuZC5wbmc=") ), folder=False )
        orig.AddDir('Clear Cache','Clear Cache',7,orig.Images + 'cache.jpg')
-       plugintools.add_item( action=vod_channels("cnVu"),  title="Refresh Menu" , thumbnail=os.path.join(LOAD_LIVE,vod_channels("ZGVmYXVsdGxvZ28ucG5n")) , fanart=os.path.join(LOAD_LIVE,vod_channels("YmFja2dyb3VuZC5wbmc=")) , folder=True )
     if plugintools.get_setting("improve")=="true":
         tseaded = xbmc.translatePath(sync_data("c3BlY2lhbDovL3VzZXJkYXRhL2FkdmFuY2Vkc2V0dGluZ3MueG1s"))
         if not os.path.exists(tseaded):
