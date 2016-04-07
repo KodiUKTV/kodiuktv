@@ -2,6 +2,6 @@
 <category label="General">
      <setting id="Username" type="text" label="Username" default=""/>
      <setting id="Password" type="text" option="writeable,hidden" label="Password" default=""/>
-	 <setting id="note" type="text" label="Note:" default="To Complete Log In Click Refresh Menu!"/>
+	 <setting id="note" type="text" label="Note:" default="To Complete Log In Click Clear Cache!"/>
 </category>
 </settings>

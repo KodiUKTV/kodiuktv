@@ -1,2 +1,5 @@
 1.0 - First release
 2.0 - EPG, Catagories Added
+2.1 - Login bug fix
+2.2 - settings bug fix 
+2.3 - VOD section added

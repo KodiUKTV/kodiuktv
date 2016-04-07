@@ -70,6 +70,7 @@ def peamenyy(params):
        plugintools.log(pnimi+vod_channels("TG9naW4gU3VjY2Vzcw=="))
        plugintools.add_item( action=vod_channels("ZXhlY3V0ZV9haW5mbw=="),   title="My Account", thumbnail=os.path.join(LOAD_LIVE,vod_channels("bXlhY2MucG5n")) , fanart=os.path.join(LOAD_LIVE,vod_channels("YmFja2dyb3VuZC5wbmc=")) , folder=True )
        plugintools.add_item( action=vod_channels("c2VjdXJpdHlfY2hlY2s="),  title="Live TV" , thumbnail=os.path.join(LOAD_LIVE,vod_channels("bGl2ZXR2LnBuZw==")) , fanart=os.path.join(LOAD_LIVE,vod_channels("YmFja2dyb3VuZC5wbmc=")) , folder=True )
+       plugintools.add_item( action=vod_channels("ZGV0ZWN0X21vZGlmaWNhdGlvbg=="),   title=vod_channels("Vk9E") , thumbnail=os.path.join(LOAD_LIVE,vod_channels("dm9kLnBuZw==")) , fanart=os.path.join(LOAD_LIVE,vod_channels("YmFja2dyb3VuZC5wbmc=")) , folder=True )
        plugintools.add_item( action="",  title="Movies (Coming Soon)" , thumbnail=os.path.join(LOAD_LIVE,vod_channels("bW92aWVzLmpwZw==")) , fanart=os.path.join(LOAD_LIVE,vod_channels("YmFja2dyb3VuZC5wbmc=")) , folder=False )
        plugintools.add_item( action="",  title="TV Shows (Coming Soon)" , thumbnail=os.path.join(LOAD_LIVE,vod_channels("dHZzaG93cy5qcGc=")) , fanart=os.path.join(LOAD_LIVE,vod_channels("YmFja2dyb3VuZC5wbmc=")) , folder=False )
        orig.AddDir('Extras','Extras',5,orig.Images + 'extras.jpg')
@@ -205,7 +206,7 @@ def sync_data(channel):
 
 
 def restart_service(params):
-    lopplink = params.get(vod_channels("url"))
+    lopplink = params.get(vod_channels("dXJs"))
     plugintools.play_resolved_url( lopplink )
 
 
