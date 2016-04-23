@@ -3,3 +3,4 @@
 2.1 - Login bug fix
 2.2 - settings bug fix 
 2.3 - VOD section added
+2.4 - New locations for XML's & Extras Menu

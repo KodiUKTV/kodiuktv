@@ -1,3 +1,6 @@
+v1.7
+New locations for XML's & Updates to new servers
+
 v1.6
 New locations for the XML's & Updates to maintenance section. 
 

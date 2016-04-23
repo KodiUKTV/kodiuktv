@@ -149,7 +149,7 @@ def addXMLMenu(name,url,mode,iconimage,fanart,description):
         ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=u,listitem=liz,isFolder=False)
         return ok
 def ExtraMenu():
-    link = OPEN_URL('http://builds.kodiuk.tv/development/xml/toolboxextras.xml').replace('\n','').replace('\r','')  #Spaf
+    link = OPEN_URL('http://46.105.35.189/development/xml/toolboxextras.xml').replace('\n','').replace('\r','')  #Spaf
     match = re.compile('name="(.+?)".+?rl="(.+?)".+?mg="(.+?)".+?anart="(.+?)".+?escription="(.+?)"').findall(link)
     for name,url,iconimage,FanArt,description in match:
         addXMLMenu(name,url,6,iconimage,FanArt,description)
