@@ -1,3 +1,6 @@
+v1.8 
+After STREaM! By KODIUKTV release matched build's up so always the same build lists in BOTH & Fixed force close on windows.
+
 v1.7
 New locations for XML's & Updates to new servers
 
