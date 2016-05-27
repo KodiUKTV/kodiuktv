@@ -54,7 +54,7 @@
   </extension>
   <extension point="xbmc.addon.metadata">
     <summary>TV + Movies, Sports + More from Pegasus by KODIUKTV</summary>
-    <description>Giving you access to only the best content, Updated offen & a great source of TV Shows / Movies / Sports / Live TV + More
+    <description>Giving you access to only the best content, Updated offen + a great source of TV Shows / Movies / Sports / Live TV + More
 www.KODIUK.TV for more + Join us on facebook just search KODI UK.TV. Thats all folks!
     </description>
     <platform>all</platform>
