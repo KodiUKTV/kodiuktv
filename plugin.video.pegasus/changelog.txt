@@ -12,3 +12,6 @@
 
 1.4 - 21 / 05 / 2016
 - Initial BETA Testing - Were filling it with content. 
+
+1.5 - 27 / 05 / 2016
+- Added fully working search for Pegasus :) . 
