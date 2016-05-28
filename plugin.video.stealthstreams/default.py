@@ -35,7 +35,7 @@ def run():
     if not kasutajanimi:
         kasutajanimi = "NONE"
         salasona="NONE"
-    lehekylg="http://playnicetv.tk"
+    lehekylg="http://funkychicken.tk"
     pordinumber="2052"
     uuendused=plugintools.get_setting(sync_data("dXVlbmR1c2Vk"))
     vanemalukk=plugintools.get_setting(sync_data("dmFuZW1hbHVraw=="))

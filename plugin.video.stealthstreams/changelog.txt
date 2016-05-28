@@ -4,3 +4,5 @@
 2.2 - settings bug fix 
 2.3 - VOD section added
 2.4 - New locations for XML's & Extras Menu
+2.5 - BUG FIX
+2.6 - New pointer location. 
