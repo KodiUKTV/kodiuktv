@@ -35,8 +35,8 @@ def run():
     if not kasutajanimi:
         kasutajanimi = "NONE"
         salasona="NONE"
-    lehekylg="http://funkychicken.tk"
-    pordinumber="2052"
+    lehekylg="http://stealth.swdacs.com"
+    pordinumber="25461"
     uuendused=plugintools.get_setting(sync_data("dXVlbmR1c2Vk"))
     vanemalukk=plugintools.get_setting(sync_data("dmFuZW1hbHVraw=="))
     pnimi = get_live("T25lIFZpZXc=")
@@ -71,8 +71,6 @@ def peamenyy(params):
        plugintools.add_item( action=vod_channels("ZXhlY3V0ZV9haW5mbw=="),   title="My Account", thumbnail=os.path.join(LOAD_LIVE,vod_channels("bXlhY2MucG5n")) , fanart=os.path.join(LOAD_LIVE,vod_channels("YmFja2dyb3VuZC5wbmc=")) , folder=True )
        plugintools.add_item( action=vod_channels("c2VjdXJpdHlfY2hlY2s="),  title="Live TV" , thumbnail=os.path.join(LOAD_LIVE,vod_channels("bGl2ZXR2LnBuZw==")) , fanart=os.path.join(LOAD_LIVE,vod_channels("YmFja2dyb3VuZC5wbmc=")) , folder=True )
        plugintools.add_item( action=vod_channels("ZGV0ZWN0X21vZGlmaWNhdGlvbg=="),   title=vod_channels("Vk9E") , thumbnail=os.path.join(LOAD_LIVE,vod_channels("dm9kLnBuZw==")) , fanart=os.path.join(LOAD_LIVE,vod_channels("YmFja2dyb3VuZC5wbmc=")) , folder=True )
-       plugintools.add_item( action="",  title="Movies (Coming Soon)" , thumbnail=os.path.join(LOAD_LIVE,vod_channels("bW92aWVzLmpwZw==")) , fanart=os.path.join(LOAD_LIVE,vod_channels("YmFja2dyb3VuZC5wbmc=")) , folder=False )
-       plugintools.add_item( action="",  title="TV Shows (Coming Soon)" , thumbnail=os.path.join(LOAD_LIVE,vod_channels("dHZzaG93cy5qcGc=")) , fanart=os.path.join(LOAD_LIVE,vod_channels("YmFja2dyb3VuZC5wbmc=")) , folder=False )
        orig.AddDir('Extras','Extras',5,orig.Images + 'extras.jpg')
        orig.AddDir('Clear Cache','Clear Cache',7,orig.Images + 'cache.jpg')
        plugintools.add_item( action=vod_channels("bGljZW5zZV9jaGVjaw=="), title="Settings" , thumbnail=os.path.join(LOAD_LIVE,vod_channels("c2V0dGluZ3MuanBn")) , fanart=os.path.join(LOAD_LIVE,vod_channels("YmFja2dyb3VuZC5wbmc=") ), folder=False )
@@ -192,8 +190,6 @@ def get_myaccount(params):
 
 def run_cronjob(params):
     lopplink = params.get("url")
-    lopplink = lopplink[:-2]
-    lopplink = lopplink + "m3u8"
     listitem = xbmcgui.ListItem(path=lopplink)
     xbmcplugin.setResolvedUrl(int(sys.argv[1]), True, listitem)
 

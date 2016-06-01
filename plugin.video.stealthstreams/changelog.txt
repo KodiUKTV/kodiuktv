@@ -6,3 +6,4 @@
 2.4 - New locations for XML's & Extras Menu
 2.5 - BUG FIX
 2.6 - New pointer location. 
+3.0 - new streams servers & reborn
