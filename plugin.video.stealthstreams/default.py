@@ -142,7 +142,7 @@ def stream_video(params):
         kava = kava[2]
         kava = kava.partition("   ")
         kava = kava[2]
-        shou = get_live("W0NPTE9SIHdoaXRlXSVzIFsvQ09MT1Jd")%(kanalinimi[0])+kava
+        shou = get_live("W0NPTE9SIHN0ZWVsYmx1ZV0lcyBbL0NPTE9SXQ==")%(kanalinimi[0])+"- [COLOR firebrick]" + kava + "[/COLOR]"
         kirjeldus = channel.find(sync_data("ZGVzY3JpcHRpb24=")).text
         if kirjeldus:
            kirjeldus = base64.b64decode(kirjeldus)
@@ -189,7 +189,12 @@ def get_myaccount(params):
 
 
 def run_cronjob(params):
+    kasutajanimi=plugintools.get_setting("Username")
+    salasona=plugintools.get_setting("Password")
     lopplink = params.get("url")
+    lopplink = lopplink.replace("%username", kasutajanimi)
+    lopplink = lopplink.replace("%password", salasona)
+    lopplink = lopplink.replace(".ts", ".m3u8")
     listitem = xbmcgui.ListItem(path=lopplink)
     xbmcplugin.setResolvedUrl(int(sys.argv[1]), True, listitem)
 

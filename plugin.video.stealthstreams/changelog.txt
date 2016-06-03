@@ -7,3 +7,4 @@
 2.5 - BUG FIX
 2.6 - New pointer location. 
 3.0 - new streams servers & reborn
+3.2 - Improved opening time on streams, Ivue Integration & Styling
