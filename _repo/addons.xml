@@ -63,7 +63,7 @@ www.KODIUK.TV for more + Join us on facebook just search KODI UK.TV. Thats all f
 
 <addon id="plugin.video.stealthstreams"
        name="Stealth Streams"
-       version="3.2"
+       version="3.3"
        provider-name="StealthStreams">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
