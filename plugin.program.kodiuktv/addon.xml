@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="plugin.program.kodiuktv" name="KodiUK TV Wizard" version="1.8" provider-name="KodiUK.TV">
+<addon id="plugin.program.kodiuktv" name="KodiUK TV Wizard" version="1.9" provider-name="KodiUK.TV">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
