@@ -30,7 +30,7 @@
 
 <addon id="plugin.video.MaverickTV"
        name="Maverick TV"
-       version="1.4"
+       version="1.5"
        provider-name="Maverick">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>

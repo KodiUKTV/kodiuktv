@@ -54,7 +54,7 @@ else: SOURCES = []
 
 def addon_log(string):
     if debug == 'true':
-        xbmc.log("[addon.live.Maverick TV Lists-%s]: %s" %(addon_version, string))
+        xbmc.log("[addon.live.Maverick Lists-%s]: %s" %(addon_version, string))
 
 
 def makeRequest(url, headers=None):
@@ -70,19 +70,60 @@ def makeRequest(url, headers=None):
             addon_log('URL: '+url)
             if hasattr(e, 'code'):
                 addon_log('We failed with error code - %s.' % e.code)
-                xbmc.executebuiltin("XBMC.Notification(Maverick TV,We failed with error code - "+str(e.code)+",10000,"+icon+")")
+                xbmc.executebuiltin("XBMC.Notification(Maverick,We failed with error code - "+str(e.code)+",10000,"+icon+")")
             elif hasattr(e, 'reason'):
                 addon_log('We failed to reach a server.')
                 addon_log('Reason: %s' %e.reason)
-                xbmc.executebuiltin("XBMC.Notification(Maverick TV,We failed to reach a server. - "+str(e.reason)+",10000,"+icon+")")
+                xbmc.executebuiltin("XBMC.Notification(Maverick,We failed to reach a server. - "+str(e.reason)+",10000,"+icon+")")
 
 				
 def SKindex():
     addon_log("SKindex")
     addDir('Favorites','Favorites',4,'http://goo.gl/TyDD6w' ,  FANART,'','','','')
+    addDir('[B][COLOR lime]Maverick Movie Search[/B][/COLOR]','http://164.132.106.213/data/quality/quality.txt',41,'http://previews.123rf.com/images/markinv/markinv1212/markinv121200020/17010740-All-seeing-eye-Stock-Vector-horus-eye-egyptian.jpg' ,  FANART,'','','','')
     getData(_Edit.MainBase,'')
     xbmcplugin.endOfDirectory(int(sys.argv[1]))
 		
+def Open_Url(url):
+    req = urllib2.Request(url)
+    req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
+    response = ''
+    link = ''
+    try: 
+        response = urllib2.urlopen(req)
+        link=response.read()
+        response.close()
+    except: pass
+    if link != '':
+        return link
+    else:
+        link = 'Opened'
+        return link
+	
+def Search_input(url):
+    Dialog = xbmcgui.Dialog()
+    Search_title = Dialog.input('Search', type=xbmcgui.INPUT_ALPHANUM)
+    Search_name = Search_title.lower()
+    if Search_name == '':
+        pass
+    else:
+        Search_loop(Search_name,url)    
+	
+def Search_loop(Search_name,url):
+    HTML = Open_Url(url)
+    if HTML != 'Failed':
+        match = re.compile('<channel>.+?<name>(.+?)</name>.+?<thumbnail>(.+?)</thumbnail>.+?<externallink>(.+?)</externallink>.+?<fanart>(.+?)</fanart>.+?</channel>',re.DOTALL).findall(HTML)
+        for name,image,url,fanart in match:
+            if not 'http:' in url:
+                pass
+            else:
+                Search_loop(Search_name,url)
+        match2 = re.compile('<title>(.+?)</title>.+?<link>(.+?)</link>.+?<thumbnail>(.+?)</thumbnail>.+?<fanart>(.+?)</fanart>',re.DOTALL).findall(HTML)
+        for name,url,image,fanart in match2:
+            if 'http:' in url:
+                if Search_name.lower() in name.lower():
+                    addLink(url, name,image,fanart,'','','','',None,'',1)		
+
 	
 def getSources():
         if os.path.exists(favorites) == True:
@@ -207,7 +248,7 @@ def addSource(url=None):
             b.close()
         addon.setSetting('new_url_source', "")
         addon.setSetting('new_file_source', "")
-        xbmc.executebuiltin("XBMC.Notification(Maverick TV,New source added.,5000,"+icon+")")
+        xbmc.executebuiltin("XBMC.Notification(Maverick,New source added.,5000,"+icon+")")
         if not url is None:
             if 'xbmcplus.xb.funpic.de' in url:
                 xbmc.executebuiltin("XBMC.Container.Update(%s?mode=14,replace)" %sys.argv[0])
@@ -554,7 +595,7 @@ def SearchChannels():
     ReadChannel = 0
     FoundMatch = 0
     progress = xbmcgui.DialogProgress()
-    progress.create('Maverick TV Searching Please wait',' ')
+    progress.create('Maverick Searching Please wait',' ')
 	
     while FoundChannel <> ReadChannel:
         BaseSearch = List[ReadChannel].strip()
@@ -1932,12 +1973,12 @@ def urlsolver(url):
     try:
         import genesisresolvers
     except Exception:
-        xbmc.executebuiltin("XBMC.Notification(Maverick TV,Please enable Update Commonresolvers to Play in Settings. - ,10000)")
+        xbmc.executebuiltin("XBMC.Notification(Maverick,Please enable Update Commonresolvers to Play in Settings. - ,10000)")
 
     resolved=genesisresolvers.get(url).result
     if url == resolved or resolved is None:
         #import
-        xbmc.executebuiltin("XBMC.Notification(Maverick TV,Using Urlresolver module.. - ,5000)")
+        xbmc.executebuiltin("XBMC.Notification(Maverick TV ,Using Urlresolver module.. - ,5000)")
         import urlresolver
         host = urlresolver.HostedMediaFile(url)
         if host:
@@ -1995,12 +2036,12 @@ def play_playlist(name, mu_playlist):
 
 def download_file(name, url):
         if addon.getSetting('save_location') == "":
-            xbmc.executebuiltin("XBMC.Notification('Maverick TV','Choose a location to save files.',15000,"+icon+")")
+            xbmc.executebuiltin("XBMC.Notification('Maverick','Choose a location to save files.',15000,"+icon+")")
             addon.openSettings()
         params = {'url': url, 'download_path': addon.getSetting('save_location')}
         downloader.download(name, params)
         dialog = xbmcgui.Dialog()
-        ret = dialog.yesno('Maverick TV', 'Do you want to add this file as a source?')
+        ret = dialog.yesno('Maverick', 'Do you want to add this file as a source?')
         if ret:
             addSource(os.path.join(addon.getSetting('save_location'), name))
 
@@ -2118,7 +2159,7 @@ def search(site_name,search_term=None):
         urlMain = "http://www.omdbapi.com/?t=" 
         url= urlMain+search_term
 
-        headers = dict({'User-Agent':'Mozilla/5.0 (Windows NT 6.3; rv:33.0) Gecko/20100101 Firefox/33.0','Referer': 'http://joker.org/','Accept-Encoding':'gzip, deflate','Content-Type': 'application/json;charset=utf-8','Accept': 'application/json, text/plain, */*'})
+        headers = dict({'User-Agent':'Mozilla/5.0 (Windows NT 6.3; rv:33.0) Gecko/20100101 Firefox/33.0','Referer': 'http://Maverick .org/','Accept-Encoding':'gzip, deflate','Content-Type': 'application/json;charset=utf-8','Accept': 'application/json, text/plain, */*'})
     
         r=requests.get(url,headers=headers)
         data = r.json()
@@ -2134,7 +2175,7 @@ def search(site_name,search_term=None):
                 SaveToFile(history,page_data,append=True)
                 return url
         else:
-            xbmc.executebuiltin("XBMC.Notification(Maverick TV,No IMDB match found ,7000,"+icon+")")
+            xbmc.executebuiltin("XBMC.Notification(Maverick,No IMDB match found ,7000,"+icon+")")
 ## Lunatixz PseudoTV feature
 def ascii(string):
     if isinstance(string, basestring):
@@ -2525,13 +2566,13 @@ elif mode==17:
     if url:
         playsetresolved(url,name,iconimage,setresolved)
     else:
-        xbmc.executebuiltin("XBMC.Notification(Maverick TV ,Failed to extract regex. - "+"this"+",4000,"+icon+")")
+        xbmc.executebuiltin("XBMC.Notification(Maverick ,Failed to extract regex. - "+"this"+",4000,"+icon+")")
 elif mode==18:
     addon_log("youtubedl")
     try:
         import youtubedl
     except Exception:
-        xbmc.executebuiltin("XBMC.Notification(Maverick TV,Please [COLOR yellow]install the Youtube Addon[/COLOR] module ,10000,"")")
+        xbmc.executebuiltin("XBMC.Notification(Maverick,Please [COLOR yellow]install the Youtube Addon[/COLOR] module ,10000,"")")
     stream_url=youtubedl.single_YD(url)
     playsetresolved(stream_url,name,iconimage)
 elif mode==19:
@@ -2566,6 +2607,9 @@ elif mode==30:
 elif mode==40:
     SearchChannels()
     SetViewThumbnail()
+    xbmcplugin.endOfDirectory(int(sys.argv[1]))
+elif mode == 41 : 
+    Search_input(url)
     xbmcplugin.endOfDirectory(int(sys.argv[1]))
 	
 elif mode==53:
