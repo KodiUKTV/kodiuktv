@@ -79,7 +79,6 @@ def makeRequest(url, headers=None):
 				
 def SKindex():
     addon_log("SKindex")
-    addDir('Favorites','Favorites',4,'http://goo.gl/TyDD6w' ,  FANART,'','','','')
     addDir('[B][COLOR lime]Maverick Movie Search[/B][/COLOR]','http://164.132.106.213/data/quality/quality.txt',41,'http://previews.123rf.com/images/markinv/markinv1212/markinv121200020/17010740-All-seeing-eye-Stock-Vector-horus-eye-egyptian.jpg' ,  FANART,'','','','')
     getData(_Edit.MainBase,'')
     xbmcplugin.endOfDirectory(int(sys.argv[1]))
@@ -1978,7 +1977,7 @@ def urlsolver(url):
     resolved=genesisresolvers.get(url).result
     if url == resolved or resolved is None:
         #import
-        xbmc.executebuiltin("XBMC.Notification(Maverick TV ,Using Urlresolver module.. - ,5000)")
+        xbmc.executebuiltin("XBMC.Notification(Maverick TV ,Is Finding Your Link - ,5000)")
         import urlresolver
         host = urlresolver.HostedMediaFile(url)
         if host:

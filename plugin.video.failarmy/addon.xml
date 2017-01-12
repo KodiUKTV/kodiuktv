@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.video.failarmy"
+	name="FailArmy - KodiUKTV"
+	version="1.0.2"
+	provider-name="zag">
+  <requires>
+    <import addon="xbmc.python" version="2.14.0"/>
+    <import addon="script.module.addon.common" version="2.0.0"/>
+    <import addon="plugin.video.youtube" version="5.0.0"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">FailArmy Addon - KODIUKTV - follow us at www.kodiuk.tv /summary>
+    <description lang="en">Simply a scraper for the FailArmy Channels! Enjoy! www.kodiuk.tv</description>
+    <platform>all</platform>
+    <forum>http://kodiuk.tv</forum>
+    <source>http://kodiuk.tv</source>
+    <website>http://kodiuk.tv</website>
+    <email>http://kodiuk.tv</email>
+    <license>GPL v2.0</license>
+    <assets>
+        <icon>icon.png</icon>
+        <fanart>fanart.jpg</fanart>
+        <screenshot>resources/screenshot-01.jpg</screenshot>
+        <screenshot>resources/screenshot-02.jpg</screenshot>
+        <screenshot>resources/screenshot-03.jpg</screenshot>
+    </assets>
+    <news>Updated with new artwork resources</news>
+  </extension>
+</addon>

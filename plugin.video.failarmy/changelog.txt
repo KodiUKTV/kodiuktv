@@ -1,0 +1,4 @@
+- v1.0 
+Release version
+- v1.0.2
+Changes to Addon XML & Tidy up.
