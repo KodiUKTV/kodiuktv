@@ -30,7 +30,7 @@
 
 <addon id="plugin.video.failarmy"
 	name="FailArmy - KodiUKTV"
-	version="1.0.2"
+	version="1.1"
 	provider-name="zag">
   <requires>
     <import addon="xbmc.python" version="2.14.0"/>
