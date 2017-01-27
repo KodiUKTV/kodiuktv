@@ -28,6 +28,29 @@
   </extension>
 </addon>
 
+<addon id="plugin.video.daffyslist" name="Daffyslist" version="1.1.3" provider-name="Daffyslist">
+	<requires>
+		<import addon="xbmc.python" version="2.1.0" />
+		<import addon="plugin.video.youtube" version="5.2.1" optional="true" />
+		<import addon="script.module.pyxbmct" version="1.1.4" />
+		<import addon="script.module.urlresolver" version="3.0.0"/>
+		<import addon="script.module.liveresolver" version="0.1.24"/>
+		<import addon="script.video.F4mProxy" version="2.2.3"/>
+	</requires>
+	<extension point="xbmc.python.pluginsource" library="default.py">
+		<provides>video</provides>
+	</extension>
+  <extension point="xbmc.addon.metadata">
+    <summary>Have a look</summary>
+    <description>I work alone and have a fulltime job!!! i will update
+	and work on this addon aslong as kodi is alive!! please bare with.
+	Daffy loves ya
+	Thats all Folks
+    </description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
 <addon id="plugin.video.MaverickTV"
        name="Maverick TV"
        version="1.7"
@@ -88,6 +111,30 @@
     <description>Giving you access to only the best content, Updated offen + a great source of TV Shows / Movies / Sports / Live TV + More
 www.KODIUK.TV for more + Join us on facebook just search KODI UK.TV. Thats all folks!
     </description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
+<addon
+  id="plugin.video.SportsDevil"
+  version="2016.04.20"
+  name="SportsDevil"
+  provider-name="SportsDevil">
+  <requires>
+   <import addon="xbmc.python" version="2.14.0"/>
+   <import addon="script.module.requests" />
+   <import addon="script.module.livestreamer" />
+   <import addon="script.module.pydevd" optional="true"/>
+  </requires>
+  <extension
+    point="xbmc.python.pluginsource"
+    library="default.py">
+   <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary>Play videos of different sports streaming sites</summary>
+    <description>Play videos of different sports streaming sites</description>
+    <license>GNU GENERAL PUBLIC LICENSE. Version 2, June 1991</license>
     <platform>all</platform>
   </extension>
 </addon>
