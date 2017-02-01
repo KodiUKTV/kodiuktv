@@ -2,7 +2,3 @@ V1.0
 Initial Release
 V1.5
 Search Included
-V1.6
-New Lists
-V1.7
-Tidy up

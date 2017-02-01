@@ -53,7 +53,7 @@
 
 <addon id="plugin.video.MaverickTV"
        name="Maverick TV"
-       version="1.7"
+       version="2.4"
        provider-name="Maverick">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
