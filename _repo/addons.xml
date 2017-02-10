@@ -145,7 +145,7 @@ www.KODIUK.TV for more + Join us on facebook just search KODI UK.TV. Thats all f
   </extension>
 </addon>
 
-    <addon id="repository.kodiuktv" name="KODIUKTV Repo" version="1.0.0" provider-name="KODIUKTV">
+    <addon id="repository.kodiuktv" name="KODIUKTV Repo" version="1.0.3" provider-name="KODIUKTV">
         <requires>
             <import addon="xbmc.addon" version="12.0.0"/>
         </requires>
