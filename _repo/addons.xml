@@ -37,37 +37,6 @@
   </extension>
 </addon>
 
-<addon id="plugin.video.MaverickTV"
-       name="Maverick TV"
-       version="2.6"
-       provider-name="Maverick">
-  <requires>
-    <import addon="xbmc.python" version="2.1.0"/>
-	<import addon="script.module.t0mm0.common" version="2.0.0"/>
-    <import addon="script.module.beautifulsoup" version="3.2.1"/>
-    <import addon="script.module.simple.downloader" version="0.9.4"/>
-    <import addon="script.module.beautifulsoup4" />
-    <import addon="script.module.simple.downloader" version="0.9.4"/>
-    <import addon="script.module.requests" />
-    <import addon="script.module.httplib2" />
-    <import addon="script.module.youtube.dl" optional="true"/>
-    <import addon="plugin.video.youtube" version="3.0.0"/>
-    <import addon="script.module.urlresolver" optional="true"/>
-    <import addon="script.module.simplejson" />
-    <import addon="script.common.plugin.cache" version="2.5.2"/>
-    <import addon="script.module.metahandler" version="2.5.1"/>
-
-  </requires>
-  <extension point="xbmc.python.pluginsource" library="default.py">
-    <provides>video</provides>
-  </extension>
-  <extension point="xbmc.addon.metadata">
-    <summary lang="en">Maverick TV</summary>
-    <description lang="en">Maverick TV</description>
-    <platform>all</platform>
-  </extension>
-</addon>
-
 <addon id="plugin.video.pegasus"
        name="Pegasus"
        version="1.5"
@@ -123,25 +92,6 @@ www.KODIUK.TV for more + Join us on facebook just search KODI UK.TV. Thats all f
     <description>Play videos of different sports streaming sites</description>
     <license>GNU GENERAL PUBLIC LICENSE. Version 2, June 1991</license>
     <platform>all</platform>
-  </extension>
-</addon>
-
-<addon id="plugin.video.stealthstreams"
-       name="Stealth Streams"
-       version="3.3"
-       provider-name="StealthStreams">
-  <requires>
-    <import addon="xbmc.python" version="2.1.0"/>
-  </requires>
-  <extension point="xbmc.python.pluginsource"
-            library="default.py">
-        <provides>video</provides>
-  </extension>
-  <extension point="xbmc.addon.metadata">
-    <summary lang="en">Stealth Streams</summary>
-    <language>en</language>
-    <description lang="en">StealthStreams official addon - Supplying only the best quality of streams for Live TV / PPV / Sports / Kids / Movies / Entertainment. You know where to find us!</description>
-     <platform>all</platform>
   </extension>
 </addon>
 
