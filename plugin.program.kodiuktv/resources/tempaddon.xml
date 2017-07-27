@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="testid" name="tempname" version="testversion" provider-name="tempprovider">
+    <requires>
+        <import addon="xbmc.python" version="2.1.0"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>testprovides</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <description>Looks like the addon is still updating!, Please wait for the update process to complete #KODIUKTV.</description>
+    </extension>
+</addon>

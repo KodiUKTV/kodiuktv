@@ -1,24 +1,17 @@
-v1.8 
-After STREaM! By KODIUKTV release matched build's up so always the same build lists in BOTH & Fixed force close on windows.
+v3.0
+Introducing the KODIUKTV Community Portal. A simple All in one solution for managing your setup
 
-v1.7
-New locations for XML's & Updates to new servers
+v2.6
+Fixes
 
-v1.6
-New locations for the XML's & Updates to maintenance section. 
+v2.5
+Whole new set of features. Auto Maintenance - Addons - Much more vercitility & of course fixes for Kodi 17. 
 
-v1.5
-Bug Fixes
+v2.0 
+Various Fixes & New Features. 
 
+V1.8 
+STREaM! INTEGRATION, 
 
-v1.4
-
-Build XML Moves as we move away from archive. Builds now download from our private VPS. 
-
-
-v1.1
-Build List loading incorrectly fixed.
-Clear Cache seperated into option.
-
-v1.0
-Initial Release
+-----
+Past versions irrelevant. Whole new codeset. 

@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addons>
-<addon id="plugin.program.kodiuktv" name="KodiUK TV Wizard" version="1.9" provider-name="KodiUK.TV">
+<addon id="plugin.program.kodiuktv" name="KODIUKTV Community Portal" version="3.0.0" provider-name="KODIUKTV">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
   <extension point="xbmc.python.pluginsource" library="default.py">
-        <provides>executable</provides>
+    <provides>executable</provides>
   </extension>
+  <extension point="xbmc.service" library="startup.py" start="startup" />
   <extension point="xbmc.addon.metadata">
-    <summary lang="en">KodiUK TV Wizard</summary>
-    <description lang="en">The hub of KodiUK.TV and the home of all official, and Community builds.  Find us online at www.kodiuk.tv and also on Facebook</description>
+    <summary lang="en">KODIUK.TV Community Portal - Head to our website for more info www.kodiuk.tv</summary>
+    <description lang="en">Contains all our fantastic Official Builds + Addons. Aswell as maintenance / fixes + The best community Builds / Addons from around the kodiverse</description>
     <platform>all</platform>
   </extension>
 </addon>
